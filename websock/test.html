@@ -1,0 +1,80 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>JavaScript classes demo</title>
+<script language="JavaScript" src="Region.js"></script>
+<script language="JavaScript">
+<!--
+
+// class definition ^= constructor
+function foo() {
+	console.log("foo()");
+	this.x = 123;
+}
+
+// "static" member function
+foo.prototype.incX = function(i) { console.log("foo::incX"); this.x += i; }
+foo.prototype.negX = function() { console.log("foo::negX"); this.x = -this.x; }
+
+
+// subclass declaration
+bar.prototype = new foo;
+
+// subclass constructor
+function bar() {
+	foo.call(this); // explicit call to superclass constructor
+	console.log("bar()");
+	this.y = 321;
+}
+
+// member function with superclass call
+bar.prototype.incX = function(i) { console.log("bar::incX"); foo.prototype.incX.call(this,i); }
+bar.prototype.incY = function(i) { this.y += i; }
+
+
+function init() {
+
+	a = new foo;
+	console.log(a);
+	b = new bar;
+	console.log(b);
+	c = new bar;
+	console.log(c);
+
+	m = new Motion;
+
+	g = new Gesture("tap");
+	g.features.push(m);
+	
+	reg = new Region(1);
+	reg.gestures.push(g);
+	reg.outline.push([2,4]);
+	reg.outline.push([1,3]);
+
+	a.incX(1);
+	a.incX(1);
+	b.incX(1);
+	b.incY(1);
+	c.negX();
+
+	console.log(a);
+	console.log(b);
+	console.log(c);
+
+	console.log(JSON.stringify(a));
+	console.log(JSON.stringify(b));
+	console.log(JSON.stringify(c));
+	console.log(JSON.stringify(reg));
+
+	for (i in m) {
+		console.log(i+" "+Object.hasOwnProperty.call(m,i));
+	}
+
+}
+
+//-->
+</script>
+</head><body onload="init()">
+
+foo
+
+</body></html>

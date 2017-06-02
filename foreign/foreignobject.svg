@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" width="600px" height="600px" xmlns:html="http://www.w3.org/1999/xhtml">
+	<script type="text/javascript" xlink:href="foreignobject.js"/>
+	<rect id="background" x="0%" y="0%" width="100%" height="100%" fill="#333" opacity="0"/>
+	<foreignObject x="0" y="0" width="100%" height="40px">
+        <html:input type="text" id="url1" value="http://people.mozilla.com/~prouget/demos/resources/videos/billyBrowsers.ogg"/>
+		<html:button onclick="goto(document.getElementById('url1').value)">Go</html:button>
+        <html:input type="text" id="url2" value="clicktest.html"/>
+		<html:button onclick="goto(document.getElementById('url2').value)">Go</html:button>
+		<html:button onclick="dwim()">Click</html:button>
+	</foreignObject>
+	<g id="target" transform="translate(250, 250) scale(0.5) rotate(10)">
+		<foreignObject id="foreignObject" x="-400px" y="-200px" width="800px" height="400px">
+			<html:iframe width="100%" height="100%" src="" id="iframe"/>
+		</foreignObject>
+		<rect x="-400px" y="-200px" width="800px" height="400px" fill="none" id="surface" opacity="0"/>
+
+		<rect x="-100px" y="-250px" width="200px" height="20px" id="handle-top" class="handle"/>
+
+		<rect x="-410px" y="-210px" width="20px" height="20px" id="handle-tl" class="handle"/>
+		<rect x="390px" y="-210px" width="20px" height="20px" id="handle-tr" class="handle"/>
+		<rect x="-410px" y="190px" width="20px" height="20px" id="handle-bl" class="handle"/>
+		<rect x="390px" y="190px" width="20px" height="20px" id="handle-br" class="handle"/>
+	</g>
+
+
+</svg>
